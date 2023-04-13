@@ -16,7 +16,7 @@ public class getData
         while (sc.hasNextLine())
         {
             String name = sc.nextLine();
-            users.add(new User(count,name));
+            //users.add(new User(name,));
             count = count + 1;
         }
     } 

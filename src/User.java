@@ -1,10 +1,11 @@
 package src;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class User 
 {
-    int code;
+    BigInteger code;
     String name;
     String Description;
     ArrayList<post> posts = new ArrayList<post>(1);
@@ -14,6 +15,7 @@ public class User
     
     public User(String name, String Description,ArrayList<post>... posts)
     {
+        code = encoding.encode(name);
         this.name = name;
         this.Description = Description;
         this.posts.equals(posts);
@@ -22,7 +24,7 @@ public class User
     {
         return name;
     }
-    public int getCode()
+    public BigInteger getCode()
     {
         return code;
     }
@@ -34,15 +36,11 @@ public class User
     {
         return right;
     }
-    public void setCode(int newCode)
-    {
-        code = newCode;
-    }
-    public setLeft(User userLeft)
+    public void setLeft(User userLeft)
     {
         left = userLeft;
     }
-    public setRight(User userRight)
+    public void setRight(User userRight)
     {
         right = userRight;
     }

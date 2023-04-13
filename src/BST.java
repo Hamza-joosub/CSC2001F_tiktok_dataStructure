@@ -2,22 +2,20 @@ package src;
 public class BST 
 {
     User root;
-    int code = 1;
     public void insert(User user)
     {
         root = insertHelper(root, user);
     }
     private User insertHelper(User root, User user)
     {
-        user.setCode(code);
-        code = code+1;
+        
 
         if(root == null)
         {
             root = user;
             return root;
         }
-        else if(code < root.getCode())
+        else if(encoding.encode(user.getName()).compareTo(root.getCode()) < 0)
         {
             root.left = insertHelper(root.left, user);
             //root.setLeft(insertHelper(root.left, user));
@@ -45,35 +43,40 @@ public class BST
 
         }
     }
-    /* 
-    public boolean search(String name)
+     
+    public User search(String name)
     {
-        return searchHelper(root, data);
+        return searchHelper(root, name);
     }
-    private boolean searchHelper(Node root, int data)
+    private User searchHelper(User root, String name)
     {
         if (root == null)
         {
-            return false;
+            return null;
         }
-        else if(root.data == data)
+        else if(root.getName().equals(name))
         {
-            return true;
-        }
-        else if(root.data > data)
-        {
-            return searchHelper(root.left, data);
-        }
-        else if(root.data < data)
-        {
-            return searchHelper(root.right, data);
+            return root;
         }
         else 
         {
-            return false;
+            if(root.getCode().compareTo(encoding.encode(name))>0)
+            {
+                return searchHelper(root.left, name);
+            }
+            else if(root.getCode().compareTo(encoding.encode(name)) <0)
+            {
+                return searchHelper(root.right, name);
+            }
+            else
+            {
+                return null;
+            }
         }
-        }
+        
 
+        }
+/*
     public void remove(int data)
     {
         if(search(data) == true)
