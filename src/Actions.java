@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Actions 
 {
     BST tree;
-    public void actions()
+    public Actions()
     {
         tree = new BST();
     }
@@ -14,17 +14,21 @@ public class Actions
     {
         tree.insert(new Account(name, description));
     }
-    public void listAccounts()
+    public String listAccounts()
     {
-        tree.display();
+        return tree.display();
     }
     public String ShowDescriptionOfAccount(String accountName)
     {
         return tree.search(accountName).getDescription();
     }
-    public post ShowPosts(String accountName)
+    public void addPost(String accountName, String title, String postName, int numOfLikes)
     {
-        
+        tree.search(accountName).addPost(title, postName, numOfLikes);
+    }
+    public String ShowPosts(String accountName)
+    {
+        return tree.search(accountName).showPosts();
     }
     
 

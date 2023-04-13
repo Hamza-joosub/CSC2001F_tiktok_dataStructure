@@ -27,17 +27,21 @@ public class BST
         return root;
     }
 
-    public void display()
+    public String display()
     {
-        displayHelper(root);
+        return displayHelper(root);
     }
-    private void displayHelper(Account root)
+    private String displayHelper(Account root)
     {
         if(root != null)
         {
             displayHelper(root.getLeft());
-            System.out.println(root.getName());
             displayHelper(root.getRight());
+            return root.getName();
+        }
+        else
+        {
+            return null;
         }
     }
      

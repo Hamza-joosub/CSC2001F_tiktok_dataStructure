@@ -15,16 +15,25 @@ public static void main(String[] args)
     }
     */
    // ArrayList<User> users = getData.fetch();
-    BST BST1 = new BST();
-    Account account1 = new Account("hamza","help me");
-
-    BST1.insert(account1);
-
-
-    BST1.display();
-    //System.out.println(BST1.search("hamza").getDescription());
-    //BST1.delete("Hamza");
-    //System.out.println(user1.code);
+    
+    Actions action =  new Actions();
+    action.createAccount("hamza", "wozers");
+    System.out.println(action.ShowDescriptionOfAccount("hamza"));
+    System.out.println(action.listAccounts());
+    action.addPost("hamza", "me.mov", "your naai", 1000);
+    System.out.println(action.ShowPosts("hamza"));
+System.out.print("Choose an action from the menu:" + "\n" +
+    "1. Find the profile description for a given account"  + "\n" +
+    "2. List all accounts"  + "\n" +
+    "3. Create an account"  + "\n" +
+    "4. Delete an account"  + "\n" +
+    "5. Display all posts for a single account"  + "\n" +
+    "6. Add a new post for an account"  + "\n" +
+    "7. Load a file of actions from disk and process this"  + "\n" +
+    "8. Quit"  + "\n" +
+    "Enter your choice:");
+    
+    
 }
 }
 
