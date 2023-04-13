@@ -1,27 +1,27 @@
 package src;
 public class BST 
 {
-    User root;
-    public void insert(User user)
+    Account root;
+    public void insert(Account account)
     {
-        root = insertHelper(root, user);
+        root = insertHelper(root, account);
     }
-    private User insertHelper(User root, User user)
+    private Account insertHelper(Account root, Account account)
     {
         if(root == null)
         {
-            root = user;
+            root = account;
             return root;
         }
-        else if(encoding.encode(user.getName()).compareTo(encoding.encode(root.getName())) < 0)
+        else if(encoding.encode(account.getName()).compareTo(encoding.encode(root.getName())) < 0)
         {
-            root.left = insertHelper(root.left, user);
+            root.left = insertHelper(root.left, account);
             //root.setLeft(insertHelper(root.left, user));
             
         }
         else 
         {
-            root.right = insertHelper(root.right, user);
+            root.right = insertHelper(root.right, account);
             //root.setRight(insertHelper(root.getRight(), user));       
         }
         return root;
@@ -31,22 +31,21 @@ public class BST
     {
         displayHelper(root);
     }
-    private void displayHelper(User root)
+    private void displayHelper(Account root)
     {
         if(root != null)
         {
             displayHelper(root.getLeft());
             System.out.println(root.getName());
             displayHelper(root.getRight());
-
         }
     }
      
-    public User search(String name)
+    public Account search(String name)
     {
         return searchHelper(root, name);
     }
-    private User searchHelper(User root, String name)
+    private Account searchHelper(Account root, String name)
     {
         if (root == null)
         {
@@ -86,13 +85,13 @@ public class BST
             System.out.println("cant find data");
         }
     }
-    */
+    
     public void delete(String name)
     {
         deleteHelper(root, name);
     }
 
-    public User deleteHelper(User root, String name)
+    public Account deleteHelper(Account root, String name)
     {
         if(root.equals(null))
         {
@@ -125,7 +124,7 @@ public class BST
         }
         return root;
     }
-    private User predecessor(User root2) {
+    public Account predecessor(Account root2) {
         root = root.right;
         while(root.left != null)
         {
@@ -133,7 +132,7 @@ public class BST
         }
         return root;
     }
-    public User successor(User root)
+    public Account successor(Account root)
     {
         root = root.left;
         while(root.right !=null)
@@ -142,6 +141,7 @@ public class BST
         }
         return root;
     }
+    */
     
 }
     
