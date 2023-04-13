@@ -8,14 +8,12 @@ public class BST
     }
     private User insertHelper(User root, User user)
     {
-        
-
         if(root == null)
         {
             root = user;
             return root;
         }
-        else if(encoding.encode(user.getName()).compareTo(root.getCode()) < 0)
+        else if(encoding.encode(user.getName()).compareTo(encoding.encode(root.getName())) < 0)
         {
             root.left = insertHelper(root.left, user);
             //root.setLeft(insertHelper(root.left, user));
@@ -60,11 +58,11 @@ public class BST
         }
         else 
         {
-            if(root.getCode().compareTo(encoding.encode(name))>0)
+            if(encoding.encode(root.getName()).compareTo(encoding.encode(name))>0)
             {
                 return searchHelper(root.left, name);
             }
-            else if(root.getCode().compareTo(encoding.encode(name)) <0)
+            else if(encoding.encode(root.getName()).compareTo(encoding.encode(name)) <0)
             {
                 return searchHelper(root.right, name);
             }
@@ -88,19 +86,25 @@ public class BST
             System.out.println("cant find data");
         }
     }
-    public Node removeHelper(Node root, int data)
+    */
+    public void delete(String name)
     {
-        if(root == null)
+        deleteHelper(root, name);
+    }
+
+    public User deleteHelper(User root, String name)
+    {
+        if(root.equals(null))
         {
             return root;
         }
-        else if(data<root.data)
+        else if(encoding.encode(name).compareTo(encoding.encode(root.getName()))<0)
         {
-            root.left = removeHelper(root.left, data);
+            root.left = deleteHelper(root.getLeft(), name);
         }
-        else if(data>root.data)
+        else if(encoding.encode(name).compareTo(encoding.encode(root.getName()))>0)
         {
-            root.right = removeHelper(root.right, data);
+            root.right = deleteHelper(root.getRight(), name);
         }
         else 
         {
@@ -110,35 +114,35 @@ public class BST
             }
             else if(root.right != null)
             {
-                root.data = successor(root);
-                root.right = removeHelper(root.right, root.data);
+                root = successor(root);
+                root.right = deleteHelper(root.right, root.name);
 
             }
             else {
-                root.data = predecessor(root);
-                root.left = removeHelper(root.left, root.data);
+                root = predecessor(root);
+                root.left = deleteHelper(root.left, root.name);
             }
         }
         return root;
     }
-    private int predecessor(Node root2) {
+    private User predecessor(User root2) {
         root = root.right;
         while(root.left != null)
         {
             root = root.left;
         }
-        return root.data;
+        return root;
     }
-    public int successor(Node root)
+    public User successor(User root)
     {
         root = root.left;
         while(root.right !=null)
         {
             root = root.right;
         }
-        return root.data;
+        return root;
     }
-    */
+    
 }
     
 
