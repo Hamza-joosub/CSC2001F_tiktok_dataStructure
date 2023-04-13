@@ -16,22 +16,15 @@ public static void main(String[] args)
     */
    // ArrayList<User> users = getData.fetch();
     BST BST1 = new BST();
-    User user1 = new User("Hamza", "sexy man");
-    User user2 = new User("jenna", "sexy women");
-    User user3 = new User("faeez", "poo poo head");
+    Account account1 = new Account("hamza","help me");
 
-    BST1.insert(user1);
-    BST1.insert(user2);
-    BST1.insert(user3);
+    BST1.insert(account1);
 
-    
+
     BST1.display();
-    System.out.println(BST1.search("Hamza").description);
+    //System.out.println(BST1.search("hamza").getDescription());
     //BST1.delete("Hamza");
     //System.out.println(user1.code);
-
-
-
 }
 }
 
