@@ -171,12 +171,6 @@ public static void main(String[] args)
             {
             e.printStackTrace();
             }
-
-
-
-
-
-            
         }
         case 8://exit the application
         {
