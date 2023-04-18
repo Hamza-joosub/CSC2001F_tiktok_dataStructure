@@ -7,12 +7,12 @@ import java.util.Collections;
 
 public class Account 
 {
-    String name;
-    BigInteger code;
-    String description;
+    private String name;
+    private BigInteger code;
+    private String description;
     Account left;
     Account right;
-    ArrayList<post> posts;
+    private ArrayList<post> posts;
 
     public Account(String name, String description)
     {
@@ -52,14 +52,6 @@ public class Account
     public Account getRight()
     {
         return right;
-    }
-    public void setLeft(Account account)
-    {
-        left = account;
-    }
-    public void setRight(Account account)
-    {
-        right = account;
     }
 
 

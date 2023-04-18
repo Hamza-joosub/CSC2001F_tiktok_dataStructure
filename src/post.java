@@ -1,9 +1,9 @@
 package src;
 public class post 
 {
-    String title;
-    String nameOfVideo;
-    int numOfLikes;
+    private String title;
+    private String nameOfVideo;
+    private int numOfLikes;
     public post(String title, String nameOfVideo, int numOfLikes)
     {
         this.title = title;
