@@ -26,21 +26,22 @@ public class BST
         return root;
     }
 
-    public String display()
+    public void display()
     {
-        return displayHelper(root);
+         displayHelper(root);
     }
-    private String displayHelper(Account root)
+    private void displayHelper(Account root)
     {
         if(root != null)
         {
             displayHelper(root.left);
+            System.out.println(root.getName());
             displayHelper(root.right);
-            return root.getName();
+            
         }
         else
         {
-            return null;
+            
         }
     }
      
@@ -77,41 +78,98 @@ public class BST
     
     public void delete(String name)
     {
-        deleteHelper(name);
+        
+        deleteHelper(search(name),root);
     }
 
-    public void deleteHelper( String name)
+    public Account deleteHelper(Account d,Account root)
     {
-        Account replacementNode = null;
-        Account root = null;
-        Account accountToBeRemoved = search(name);
-
-        if (accountToBeRemoved.getLeft() == null && accountToBeRemoved.getRight() == null )
+        if(root ==null)
         {
-            accountToBeRemoved = null;
+            return null;
         }
-        else if (accountToBeRemoved.getLeft() != null && accountToBeRemoved.getRight() == null)
+        else
         {
-            Account leftNode = accountToBeRemoved.getLeft();
-            accountToBeRemoved.left = null;
-            accountToBeRemoved = leftNode;
-        }
-        else if(accountToBeRemoved.getLeft() == null && accountToBeRemoved.getRight() != null)
-        {
-            Account rightNode = accountToBeRemoved.getRight();
-            accountToBeRemoved.right = null;
-            accountToBeRemoved = rightNode;  
-        }
-        else 
-        {
-            root = accountToBeRemoved.getRight();
-            while(root.getLeft() != null)
+            if(encoding.encode(d.getName()).compareTo(encoding.encode(root.getName())) < 0)
             {
-                replacementNode = root.getLeft();
+                root.left = deleteHelper (d, root.left);
             }
-            accountToBeRemoved = replacementNode;
-            replacementNode = null;
-        }    
+            else if(encoding.encode(d.getName()).compareTo(encoding.encode(root.getName())) > 0)
+            {
+                root.right = deleteHelper (d, root.right);
+            }
+            else if (root.left != null && root.right != null ) 
+            {
+                root = getMin(root.right);
+                root.right = deleteMin(root.right); 
+            }
+            else if (root.left != null && root.right == null)
+            {
+                root = root.left;
+            }
+            else if(root.left == null && root.right != null)
+            {
+                root = root.right;
+            }
+            else
+            {
+                root = null;
+            }
+            return root;
+        }  
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    public Account getMin(Account node)
+    {
+        if (node != null)
+        {
+            while(node.left != null)
+            {
+                node = node.left;
+            }
+        }
+        return node;
+    }
+
+    public Account deleteMin(Account node)
+    {
+        if (node == null)
+        {
+            return null;
+        }
+        else if (node.left !=null)
+        {
+            node.left = deleteMin(node.left);
+            return node;
+        }
+        else
+        {
+            return node.right;
+        }
     }
 }
     

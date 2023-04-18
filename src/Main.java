@@ -13,17 +13,22 @@ public static void main(String[] args)
     }
     */
 
-    //Actions action =  new Actions();
-    BST tree = new BST();
-    Account user1 = new Account("taherah", "ppophead");
-    Account user2 = new Account("hazma","bomba");
-    tree.insert(user1);
-    tree.insert(user2);
-    //System.out.println(user1.left);
-    //System.out.println(action.ShowDescriptionOfAccount("hamza"));
-    System.out.print(tree.display());
-    //action.deleteAccount("hamza");
-    //System.out.println(action.listAccounts());
+    Actions action =  new Actions();
+    
+    action.createAccount("b", "poopoohead");
+    action.createAccount("c", "bighead");
+    action.createAccount("d", "bigman");
+    action.createAccount("a", "hi");
+    action.createAccount("e", "dong");
+
+    System.out.println("before");
+    action.listAccounts();
+
+    action.deleteAccount("b");
+
+    System.out.println("");
+    System.out.println("after");
+    action.listAccounts();
     //System.out.println(action.ShowPosts("hamza"));
     
    // ArrayList<User> users = getData.fetch();

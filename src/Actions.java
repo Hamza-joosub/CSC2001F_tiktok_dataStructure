@@ -10,13 +10,13 @@ public class Actions
     {
         tree = new BST();
     }
-    public void createAccount(Account account)
+    public void createAccount(String name, String description)
     {
-        tree.insert(account);
+        tree.insert(new Account(name, description));
     }
-    public String listAccounts()
+    public void listAccounts()
     {
-        return tree.display();
+        tree.display();
     }
     public String ShowDescriptionOfAccount(String accountName)
     {
