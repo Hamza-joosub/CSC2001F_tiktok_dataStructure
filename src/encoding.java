@@ -12,9 +12,12 @@ public class encoding
             char character = name.charAt(i);
             int characterAscii = ((int) character);
             String characterAsciiString = Integer.toString(characterAscii);
-            code_string = code_string + characterAsciiString;
+            String seperatorString = "~";
+            int separatorAscii = ((int) seperatorString.charAt(0));
+            code_string = code_string + separatorAscii + characterAsciiString;
         }
         BigInteger finalCode = new BigInteger(code_string);
         return finalCode;
     }
+
 }

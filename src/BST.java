@@ -1,4 +1,5 @@
 package src;
+import java.math.BigInteger;
 public class BST 
 {
     Account root;
@@ -16,13 +17,11 @@ public class BST
         else if(encoding.encode(account.getName()).compareTo(encoding.encode(root.getName())) < 0)
         {
             root.left = insertHelper(root.left, account);
-            //root.setLeft(insertHelper(root.left, user));
-            
+            //root.setLeft(insertHelper(root.left, account));   
         }
         else 
         {
-            root.right = insertHelper(root.right, account);
-            //root.setRight(insertHelper(root.getRight(), user));       
+            root.right = insertHelper(root.right, account);      
         }
         return root;
     }
@@ -35,8 +34,8 @@ public class BST
     {
         if(root != null)
         {
-            displayHelper(root.getLeft());
-            displayHelper(root.getRight());
+            displayHelper(root.left);
+            displayHelper(root.right);
             return root.getName();
         }
         else
@@ -74,79 +73,46 @@ public class BST
                 return null;
             }
         }
-        
-
-        }
-/*
-    public void remove(int data)
-    {
-        if(search(data) == true)
-        {
-            removeHelper(root, data);
-        }
-        else
-        {
-            System.out.println("cant find data");
-        }
     }
     
     public void delete(String name)
     {
-        deleteHelper(root, name);
+        deleteHelper(name);
     }
 
-    public Account deleteHelper(Account root, String name)
+    public void deleteHelper( String name)
     {
-        if(root.equals(null))
+        Account replacementNode = null;
+        Account root = null;
+        Account accountToBeRemoved = search(name);
+
+        if (accountToBeRemoved.getLeft() == null && accountToBeRemoved.getRight() == null )
         {
-            return root;
+            accountToBeRemoved = null;
         }
-        else if(encoding.encode(name).compareTo(encoding.encode(root.getName()))<0)
+        else if (accountToBeRemoved.getLeft() != null && accountToBeRemoved.getRight() == null)
         {
-            root.left = deleteHelper(root.getLeft(), name);
+            Account leftNode = accountToBeRemoved.getLeft();
+            accountToBeRemoved.left = null;
+            accountToBeRemoved = leftNode;
         }
-        else if(encoding.encode(name).compareTo(encoding.encode(root.getName()))>0)
+        else if(accountToBeRemoved.getLeft() == null && accountToBeRemoved.getRight() != null)
         {
-            root.right = deleteHelper(root.getRight(), name);
+            Account rightNode = accountToBeRemoved.getRight();
+            accountToBeRemoved.right = null;
+            accountToBeRemoved = rightNode;  
         }
         else 
         {
-            if(root.left == null && root.right == null)
+            root = accountToBeRemoved.getRight();
+            while(root.getLeft() != null)
             {
-                root = null;
+                replacementNode = root.getLeft();
             }
-            else if(root.right != null)
-            {
-                root = successor(root);
-                root.right = deleteHelper(root.right, root.name);
-
-            }
-            else {
-                root = predecessor(root);
-                root.left = deleteHelper(root.left, root.name);
-            }
-        }
-        return root;
+            accountToBeRemoved = replacementNode;
+            replacementNode = null;
+        }    
     }
-    public Account predecessor(Account root2) {
-        root = root.right;
-        while(root.left != null)
-        {
-            root = root.left;
-        }
-        return root;
-    }
-    public Account successor(Account root)
-    {
-        root = root.left;
-        while(root.right !=null)
-        {
-            root = root.right;
-        }
-        return root;
-    }
-    */
-    
 }
     
 

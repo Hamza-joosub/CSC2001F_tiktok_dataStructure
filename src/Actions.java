@@ -10,9 +10,9 @@ public class Actions
     {
         tree = new BST();
     }
-    public void createAccount(String name, String description)
+    public void createAccount(Account account)
     {
-        tree.insert(new Account(name, description));
+        tree.insert(account);
     }
     public String listAccounts()
     {
@@ -30,7 +30,10 @@ public class Actions
     {
         return tree.search(accountName).showPosts();
     }
-    
+    public void deleteAccount(String name)
+    {
+        tree.delete(name);
+    }
 
 
 }

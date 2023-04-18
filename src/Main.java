@@ -1,8 +1,6 @@
 package src;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
-
 public class Main
 {
 public static void main(String[] args) 
@@ -14,15 +12,23 @@ public static void main(String[] args)
         System.out.println(users.get(i).getCode());
     }
     */
-   // ArrayList<User> users = getData.fetch();
+
+    //Actions action =  new Actions();
+    BST tree = new BST();
+    Account user1 = new Account("taherah", "ppophead");
+    Account user2 = new Account("hazma","bomba");
+    tree.insert(user1);
+    tree.insert(user2);
+    //System.out.println(user1.left);
+    //System.out.println(action.ShowDescriptionOfAccount("hamza"));
+    System.out.print(tree.display());
+    //action.deleteAccount("hamza");
+    //System.out.println(action.listAccounts());
+    //System.out.println(action.ShowPosts("hamza"));
     
-    Actions action =  new Actions();
-    action.createAccount("hamza", "wozers");
-    System.out.println(action.ShowDescriptionOfAccount("hamza"));
-    System.out.println(action.listAccounts());
-    action.addPost("hamza", "me.mov", "your naai", 1000);
-    System.out.println(action.ShowPosts("hamza"));
-System.out.print("Choose an action from the menu:" + "\n" +
+   // ArrayList<User> users = getData.fetch();
+/* 
+    System.out.print("Choose an action from the menu:" + "\n" +
     "1. Find the profile description for a given account"  + "\n" +
     "2. List all accounts"  + "\n" +
     "3. Create an account"  + "\n" +
@@ -32,8 +38,7 @@ System.out.print("Choose an action from the menu:" + "\n" +
     "7. Load a file of actions from disk and process this"  + "\n" +
     "8. Quit"  + "\n" +
     "Enter your choice:");
-    
-    
+    */
 }
 }
 

@@ -53,6 +53,14 @@ public class Account
     {
         return right;
     }
+    public void setLeft(Account account)
+    {
+        left = account;
+    }
+    public void setRight(Account account)
+    {
+        right = account;
+    }
 
 
 }
