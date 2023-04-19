@@ -268,7 +268,7 @@ public class BST
     {
         if (topSearched == null)
         {
-            return " ";
+            return "no top searched account ";
         }
         else
         {
@@ -279,7 +279,7 @@ public class BST
     {
         if (secondSearched == null)
         {
-            return " ";
+            return "no 2nd top searched account ";
         }
         {
         return "2nd most searches is: " + secondSearched.getName() + " with " + top + " searches";
@@ -289,7 +289,7 @@ public class BST
     {
         if (thirdSearched == null)
         {
-            return " ";
+            return "no 3rd top search account ";
         }
         else
         {
