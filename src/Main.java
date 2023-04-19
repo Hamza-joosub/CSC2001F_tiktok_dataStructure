@@ -13,18 +13,21 @@ public class Main
 {
 public static void main(String[] args) 
 {
-    /* 
-    ArrayList<User> users = getData.fetch();
-    for (int i = 0;i<users.size();i++)
-    {
-        System.out.println(users.get(i).getCode());
-    }
-    */
-    // ArrayList<User> users = getData.fetch();
+    
+    // This is the main class of a Java program that implements a TikTok-like social media platform. It
+    // creates an instance of the `Actions` class, which contains methods for performing various
+    // actions on the platform such as creating accounts, adding posts, and listing accounts. The
+    // program then displays a menu of options to the user and prompts them to choose an action.
+    // Depending on the user's choice, the program calls the appropriate method from the `Actions`
+    // class to perform the selected action. The program also includes a case for loading a file of
+    // actions from disk and processing them.
+
+    //Declarations
     Actions action =  new Actions();
     String inputString1, inputString2, inputString3, inputString4;
     Scanner inputScanner1, inputScanner2, inputScanner3, inputScanner4;
     int input1 = 0;
+    //print out menu and ask for input
     while(input1 != 8)
     {
     System.out.print("Choose an action from the menu:" + "\n" +
@@ -44,12 +47,14 @@ public static void main(String[] args)
     switch(input1)
     {
         case 1: //find profile description
-        {
+        {   
+            System.out.print(action.findTopSearchedAccounts());
             System.out.println("Enter Name of Account");
             inputScanner2 = new Scanner(System.in);
             inputString2 = inputScanner2.next();
             try {
                 System.out.println(action.ShowDescriptionOfAccount(inputString2));
+                
             } catch (Exception e) {
                 System.out.println("account not found");
             }
@@ -122,28 +127,16 @@ public static void main(String[] args)
             
             continue;
         }
-        case 7:
+        case 7://load commands from a text file and execute 
         {
-            /* 
-            String name;
-            try 
-            {
-                Scanner scanner = new Scanner(new File("/Users/hamza/Documents/Progamming/Univeristy/Java/CSC2001F_tiktok_dataStructure/src/names.txt"));
-                while(scanner.hasNext())
-                {
-                    name = scanner.nextLine();
-                    action.createAccount(name, "");
-                }
-            continue;
-            } 
-            catch (FileNotFoundException e) 
-            {
-            e.printStackTrace();
-            }
-            */
-
             String line,command,name, description,title,VideoName,likesString;
             int likes;
+            // This code block is reading a file named "dataset.txt" and processing the commands in it.
+            // The file contains commands to create accounts and add posts to those accounts. The code
+            // uses a `Scanner` object to read the file line by line and then uses another `Scanner`
+            // object to parse each line into individual commands. The commands are then executed by
+            // calling the appropriate methods from the `Actions` class. The `try` block is used to
+            // handle any exceptions that may occur while reading the file.
             try
             {
                 Scanner scanner2 = new Scanner(new File("/Users/hamza/Documents/Progamming/Univeristy/Java/CSC2001F_tiktok_dataStructure/src/dataset.txt"));

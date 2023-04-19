@@ -6,7 +6,12 @@ import src.BST;
 import src.encoding;
 import src.post;
 import java.util.ArrayList;
+import java.util.Scanner;
 
+/**
+ * The Actions class contains methods for creating, listing, and deleting accounts, adding posts to
+ * accounts, and displaying account descriptions and posts.
+ */
 public class Actions 
 {
     BST tree;
@@ -24,6 +29,7 @@ public class Actions
     }
     public String ShowDescriptionOfAccount(String accountName)
     {
+        tree.search(accountName).incrementSearchCount();
         return tree.search(accountName).getDescription();
     }
     public void addPost(String accountName, String title, String postName, int numOfLikes)
@@ -32,11 +38,17 @@ public class Actions
     }
     public String ShowPosts(String accountName)
     {
+        tree.search(accountName).incrementSearchCount();
         return tree.search(accountName).showPosts();
     }
     public void deleteAccount(String name)
     {
         tree.delete(name);
+    }
+    public String findTopSearchedAccounts()
+    {
+        tree.findTopSearchedAccounts();
+        return tree.get1st() + "\n" + tree.get2nd() + "\n" + tree.get3rd() + "\n";
     }
 
 
