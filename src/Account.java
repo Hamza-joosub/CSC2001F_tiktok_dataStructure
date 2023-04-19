@@ -54,12 +54,19 @@ public class Account
      */
     public String showPosts()
     {   
+        if (posts.size() != 0)
+        {
         Collections.reverse(posts);
         for (post i : posts) 
         {
-            return i.toString();
+            System.out.print(i.toString());
         } 
-        return null;
+        }
+        else
+        {
+        return "there ane no posts for this Account";
+        }
+        return " ";
     }
     public BigInteger getCode()
     {

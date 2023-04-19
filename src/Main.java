@@ -18,8 +18,6 @@ public class Main
 {
 public static void main(String[] args) 
 {
-    
-   
 
   // The above code is implementing a menu-driven console application for a social media platform. It
   // allows the user to perform various actions such as finding the profile description for a given
@@ -54,7 +52,7 @@ public static void main(String[] args)
     {
         case 1: //find profile description
         {   
-            System.out.print(action.findTopSearchedAccounts());
+            System.out.print(action.findTopSearchedAccount());
             System.out.println("Enter Name of Account");
             inputScanner2 = new Scanner(System.in);
             inputString2 = inputScanner2.next();
@@ -78,7 +76,7 @@ public static void main(String[] args)
             inputString2 = inputScanner2.next();
             System.out.println("Enter Description of Account");
             inputScanner3 = new Scanner(System.in);
-            inputString3 = inputScanner3.next();
+            inputString3 = inputScanner3.nextLine();
             try 
             {
                 action.createAccount(inputString2, inputString3);
@@ -95,7 +93,8 @@ public static void main(String[] args)
             inputString2 = inputScanner2.next();
             try {
                 action.deleteAccount(inputString2);
-            } catch (Exception e) {
+            } catch (Exception e) 
+            {
                 System.out.println("account not found");
             }
             continue;
@@ -143,6 +142,12 @@ public static void main(String[] args)
             // object to parse each line into individual commands. The commands are then executed by
             // calling the appropriate methods from the `Actions` class. The `try` block is used to
             // handle any exceptions that may occur while reading the file.
+            Scanner sc2 = new Scanner("/Users/hamza/Documents/Progamming/Univeristy/Java/CSC2001F_tiktok_dataStructure/src/names.txt");
+            while(sc2.hasNext())
+            {
+                name = sc2.nextLine();
+            }
+
             try
             {
                 Scanner scanner2 = new Scanner(new File("/Users/hamza/Documents/Progamming/Univeristy/Java/CSC2001F_tiktok_dataStructure/src/dataset.txt"));
