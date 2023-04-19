@@ -5,17 +5,17 @@ import src.BST;
 import src.encoding;
 import src.post;
 import java.math.BigInteger;
-/**
- * The BST class is a binary search tree implementation that allows for insertion, deletion, and
- * searching of Account objects based on their name.
- */
+
 public class BST 
 {
     Account root;
+/**
+ * The BST class implements a binary search tree data structure for storing and manipulating Account
+ * objects, including insertion, deletion, searching, and finding the account with the highest number
+ * of searches.
+ */
     int top = 0;
-        int second = 0;
-        int third = 0;
-        int searchCount;
+    int searchCount;
         Account topSearched, secondSearched, thirdSearched;
         
     String result = "Top Searched:" + "\n";
@@ -76,36 +76,31 @@ public class BST
         }
     }   
     
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // The `findTopSearchedAccounts()` method is finding the `Account` object with the highest number
+    // of searches in the binary search tree. It calls the `findTopSearchedAccountsHelper()` method
+    // with the root of the tree as a parameter. The `findTopSearchedAccountsHelper()` method
+    // recursively traverses the tree in-order (left subtree, root, right subtree) and checks the
+    // search count of each `Account` object it encounters. If the search count of an `Account` object
+    // is greater than the current highest search count (`top`), it updates the `top` variable and sets
+    // the `topSearched` variable to the current `Account` object. After the traversal is complete, the
+    // `topSearched` variable contains the `Account` object with the highest number of searches.
     public void findTopSearchedAccounts()
     {
-        findTopSearchedAccountsHelper(root);
+        findTopSearchedAccountHelper(root);
     }
-    private void findTopSearchedAccountsHelper(Account root)
+    private void findTopSearchedAccountHelper(Account root)
     {
         
         if(root != null)
         {
-            findTopSearchedAccountsHelper(root.left);
+            findTopSearchedAccountHelper(root.left);
             searchCount = root.getSearchCount();
-            if(searchCount > top && searchCount> second && searchCount>third)
+            if(searchCount > top)
             {
                 top = searchCount;
                 topSearched = root;
             }
-            findTopSearchedAccountsHelper(root.right);
+            findTopSearchedAccountHelper(root.right);
             
         }
         else
@@ -113,22 +108,6 @@ public class BST
             
         }
     }  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
  // The `search` method takes a `String` parameter `name` and returns an `Account` object with the
  // matching name if it exists in the binary search tree. It calls the `searchHelper` method with the

@@ -9,19 +9,25 @@ import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Scanner;
+/**
+ * The Main class contains a menu-driven program that allows users to perform various actions on a
+ * TikTok-like social media platform, such as creating and deleting accounts, adding and displaying
+ * posts, and loading commands from a text file.
+ */
 public class Main
 {
 public static void main(String[] args) 
 {
     
-    // This is the main class of a Java program that implements a TikTok-like social media platform. It
-    // creates an instance of the `Actions` class, which contains methods for performing various
-    // actions on the platform such as creating accounts, adding posts, and listing accounts. The
-    // program then displays a menu of options to the user and prompts them to choose an action.
-    // Depending on the user's choice, the program calls the appropriate method from the `Actions`
-    // class to perform the selected action. The program also includes a case for loading a file of
-    // actions from disk and processing them.
+   
 
+  // The above code is implementing a menu-driven console application for a social media platform. It
+  // allows the user to perform various actions such as finding the profile description for a given
+  // account, listing all accounts, creating and deleting an account, displaying all posts for a single
+  // account, adding a new post for an account, and loading a file of actions from disk and processing
+  // it. The code uses a switch statement to handle the user's input and calls methods from the
+  // `Actions` class to perform the desired actions. The application runs in a loop until the user
+  // chooses to quit.
     //Declarations
     Actions action =  new Actions();
     String inputString1, inputString2, inputString3, inputString4;
