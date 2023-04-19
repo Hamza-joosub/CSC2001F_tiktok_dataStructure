@@ -48,7 +48,7 @@ public class Actions
     public String findTopSearchedAccounts()
     {
         tree.findTopSearchedAccounts();
-        return tree.get1st() + "\n" + tree.get2nd() + "\n" + tree.get3rd() + "\n";
+        return tree.get1st() + "\n";
     }
 
 

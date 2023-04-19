@@ -105,16 +105,6 @@ public class BST
                 top = searchCount;
                 topSearched = root;
             }
-            else if(searchCount < top && searchCount> second && searchCount>third)
-            {
-                second = searchCount;
-                secondSearched = root;
-            }
-            else if(searchCount < top && searchCount < second && searchCount>third)
-            {
-                third = searchCount;
-                thirdSearched = root;
-            }
             findTopSearchedAccountsHelper(root.right);
             
         }
@@ -275,28 +265,8 @@ public class BST
         return "top search is: " + topSearched.getName() + " with " + top + " searches";
         }
     }
-    public String get2nd()
-    {
-        if (secondSearched == null)
-        {
-            return "no 2nd top searched account ";
-        }
-        {
-        return "2nd most searches is: " + secondSearched.getName() + " with " + top + " searches";
-        }
     }
-    public String get3rd()
-    {
-        if (thirdSearched == null)
-        {
-            return "no 3rd top search account ";
-        }
-        else
-        {
-        return "3rd most searches is: " + thirdSearched.getName() + " with " + top + " searches";
-        }
-    }
-}
+
     
 
 
