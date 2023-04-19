@@ -8,9 +8,10 @@ import src.post;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
  * The Actions class contains methods for creating, listing, and deleting accounts, adding posts to
- * accounts, and displaying account descriptions and posts.
+ * accounts, and retrieving information about accounts and their posts from a binary search tree.
  */
 public class Actions 
 {
@@ -45,7 +46,7 @@ public class Actions
     {
         tree.delete(name);
     }
-    public String findTopSearchedAccounts()
+    public String findTopSearchedAccount()
     {
         tree.findTopSearchedAccounts();
         return tree.get1st() + "\n";

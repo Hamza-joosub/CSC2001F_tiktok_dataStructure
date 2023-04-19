@@ -6,6 +6,10 @@ import src.encoding;
 import src.post;
 import java.math.BigInteger;
 
+/**
+ * The "encoding" class encodes a given string by converting each character to its ASCII value and
+ * concatenating them into a BigInteger.
+ */
 public class encoding 
 {
     

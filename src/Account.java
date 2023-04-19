@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * The `Account` class represents an account with a name, description, and a list of posts that can be
+ * added to and displayed in reverse order.
+ */
 public class Account 
 {
     private String name;
