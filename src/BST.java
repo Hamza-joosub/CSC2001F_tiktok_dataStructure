@@ -40,7 +40,7 @@ public class BST
             root = account;
             return root;
         }
-        else if(encoding.encode(account.getName()).compareTo(encoding.encode(root.getName())) < 0)
+        else if(encoding.encode(account.getName()).compareTo(encoding.encode(root.getName())) < 0)//root.name.compareTo(account.name) <=)
         {
             root.left = insertHelper(root.left, account);
                
